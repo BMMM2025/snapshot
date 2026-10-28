@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Personal Style Snapshot | Baraka Matchmaking &amp; Coaching</title>
+<style>
+:root{
+  color-scheme: light;
+  --green:#063737; --green-2:#0d4a49; --gold:#CFAD5C; --gold-soft:#F4EBD3;
+  --ink:#1d2726; --muted:#5d6b6a; --line:#dfe5e4; --bg:#f7f5ef; --card:#ffffff;
+  --D:#C8553D; --I:#E0A030; --S:#4E9A6B; --C:#3E6FB0; --warn:#a4452f;
+  --serif: "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--sans);-webkit-text-size-adjust:100%}
+button{font:inherit;cursor:pointer}
+.hidden{display:none!important}
+
+/* header */
+.top{background:var(--green);color:#fff;padding:18px 16px}
+.top-in{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.mark{width:44px;height:44px;flex:none}
+.brand{font-family:var(--serif);font-size:19px;line-height:1.2;color:var(--gold)}
+.brand small{display:block;font-family:var(--sans);font-size:12.5px;color:#cfe0de;letter-spacing:.04em;margin-top:2px}
+
+main{max-width:760px;margin:0 auto;padding:24px 16px 64px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 22px;box-shadow:0 1px 2px rgba(6,55,55,.04)}
+h1,h2,h3{font-family:var(--serif);color:var(--green);font-weight:600;margin:0 0 .5em;line-height:1.25}
+h1{font-size:30px}
+h2{font-size:23px}
+.lede{font-size:17.5px;color:#2c3a39}
+.salaam{font-family:var(--serif);color:var(--gold);font-size:18px;margin:0 0 6px;filter:brightness(.8)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+.fact{background:var(--gold-soft);border-radius:10px;padding:12px}
+.fact b{display:block;font-family:var(--serif);color:var(--green);font-size:18px}
+.fact span{font-size:13.5px;color:var(--muted)}
+label.field{display:block;font-weight:600;margin:18px 0 6px}
+input[type=text],textarea{width:100%;font:inherit;padding:12px 14px;border:1.5px solid #c9d3d2;border-radius:10px;background:#fff;color:var(--ink)}
+input[type=text]:focus,textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(6,55,55,.12)}
+.consent{display:flex;gap:12px;align-items:flex-start;margin-top:18px;padding:14px;border:1.5px solid var(--line);border-radius:10px;background:#fbfaf6}
+.consent input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--green)}
+.consent span{font-size:14.5px;color:#334241}
+.err{color:var(--warn);font-size:14.5px;margin-top:10px;min-height:1px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:13px 26px;font-weight:600;background:var(--green);color:#fff;text-decoration:none}
+.btn:hover{background:var(--green-2)}
+.btn.ghost{background:transparent;color:var(--green);border:1.5px solid var(--green)}
+.btn.gold{background:var(--gold);color:#1e2a1f}
+.btn.gold:hover{filter:brightness(.95)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;align-items:center}
+.row.split{justify-content:space-between}
+.note{font-size:13.5px;color:var(--muted)}
+
+/* progress */
+.progress{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0 10px;margin:-8px 0 8px}
+.ptext{display:flex;justify-content:space-between;font-size:13.5px;color:var(--muted);margin-bottom:6px}
+.bar{height:6px;background:#e4e8e2;border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--gold));transition:width .3s}
+
+/* items */
+.instr{color:var(--muted);font-size:15px;margin:-4px 0 14px}
+fieldset.item{border:0;border-top:1px solid var(--line);margin:0;padding:18px 0 16px}
+fieldset.item:first-of-type{border-top:0}
+fieldset.item legend{padding:0;font-size:16.5px;font-weight:500;margin-bottom:12px;display:flex;gap:10px}
+fieldset.item legend .n{color:var(--gold);filter:brightness(.8);font-family:var(--serif);font-weight:700;min-width:22px}
+fieldset.item.missing legend{color:var(--warn)}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:420px}
+.scale label{position:relative}
+.scale input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.scale span{display:flex;align-items:center;justify-content:center;height:44px;border:1.5px solid #c9d3d2;border-radius:10px;font-weight:600;color:#3a4847;background:#fff;transition:.12s}
+.scale input:hover + span{border-color:var(--green)}
+.scale input:focus-visible + span{box-shadow:0 0 0 3px rgba(6,55,55,.2)}
+.scale input:checked + span{background:var(--green);border-color:var(--green);color:#fff}
+.ends{display:flex;justify-content:space-between;max-width:420px;font-size:12.5px;color:var(--muted);margin-top:6px}
+
+/* finish */
+.code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:15px;background:var(--gold-soft);border:1px dashed var(--gold);border-radius:10px;padding:14px;word-break:break-all;margin:16px 0}
+.check{width:56px;height:56px;border-radius:50%;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+footer{max-width:760px;margin:0 auto;padding:0 16px 30px;font-size:12.5px;color:var(--muted);text-align:center}
+footer a{color:var(--muted)}
+
+/* ---------- report ---------- */
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.report{background:#fff;border:1px solid var(--line);border-radius:6px;padding:0 0 28px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#1f2626}
+.rp-banner{background:var(--green);color:#fff;padding:22px 28px 18px;border-bottom:4px solid var(--gold)}
+.rp-banner h1{color:#fff;font-family:var(--serif);font-size:26px;margin:0 0 4px}
+.rp-banner div{color:#d9e7e5;font-size:13px}
+.rp-body{padding:4px 28px 0}
+.report h3{font-family:Arial,Helvetica,sans-serif;font-size:16px;color:var(--green);margin:20px 0 6px;font-weight:700;break-after:avoid}
+.report p{margin:0 0 8px}
+.rp-head{font-size:19px;font-weight:700;margin:2px 0 2px!important;color:#1b2222}
+.rp-grey{color:#5a6362;font-size:12.5px}
+.rp-echo{font-style:italic;color:#5a6362;font-size:13px}
+.report b.lead{color:#1b2222}
+.rp-chart{width:100%;max-width:640px;display:block;margin:6px 0 2px}
+.report table{border-collapse:collapse;width:100%;font-size:13px;margin:6px 0 4px}
+.report th,.report td{border:1px solid #c9d2d1;padding:6px 8px;text-align:left;vertical-align:top}
+.report th{background:#e4efee}
+.report tr{break-inside:avoid}
+.report ol{margin:4px 0 8px;padding-left:22px}
+.rp-foot{margin-top:18px;padding-top:10px;border-top:1px solid var(--line);font-size:11.5px;color:#7a8483;text-align:center}
+
+@media (max-width:560px){
+  h1{font-size:25px}
+  .card{padding:22px 16px}
+  .facts{grid-template-columns:1fr}
+  .scale span{height:48px}
+  .rp-banner,.rp-body{padding-left:16px;padding-right:16px}
+}
+@media print{
+  @page{size:A4;margin:14mm 14mm 14mm}
+  body{background:#fff}
+  .top,footer,.toolbar,.no-print{display:none!important}
+  main{max-width:none;padding:0}
+  .report{border:0;border-radius:0;padding:0;font-size:12.2px}
+  .rp-body{padding:2px 0 0}
+  .rp-banner{padding:16px 18px 12px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .report th,.rp-banner{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .report h3{margin:13px 0 4px;font-size:14.5px}
+  .rp-chart{max-width:560px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <svg class="mark" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="#CFAD5C" stroke-width="1.6" stroke-linecap="round">
+      <path d="M40 15a19 19 0 1 1-24-9"/>
+      <path d="M24 39c-6-4-12-9-12-15a6 6 0 0 1 12-1 6 6 0 0 1 12 1c0 6-6 11-12 15z"/>
+    </svg>
+    <div class="brand">Baraka Matchmaking &amp; Coaching<small>PERSONAL STYLE SNAPSHOT</small></div>
+  </div>
+</header>
+
+<main>
+  <!-- 1. Welcome -->
+  <section id="s-welcome" class="card">
+    <p class="salaam">Assalamu alaykum</p>
+    <h1>Your Personal Style Snapshot</h1>
+    <p class="lede">A short reflection on how you tend to think, feel and act in everyday life. There are no right or wrong answers, only what is true for you.</p>
+    <div class="facts">
+      <div class="fact"><b>40</b><span>short statements</span></div>
+      <div class="fact"><b>8–10 min</b><span>to complete</span></div>
+      <div class="fact"><b>Private</b><span>shared only with your coach</span></div>
+    </div>
+    <p class="note">Answer quickly, with your first honest response. Think about your life in general: with family, friends and in your own choices.</p>
+    <label class="field" for="name">Your full name</label>
+    <input id="name" type="text" autocomplete="name" maxlength="80">
+    <label class="consent">
+      <input id="consent" type="checkbox">
+      <span>I agree that my answers will be used only to prepare my personal report and to support my coaching with Baraka Matchmaking &amp; Coaching. They will be kept confidential, will not be shared with anyone else, and I may ask for them to be deleted at any time, in line with the Mauritius Data Protection Act 2017.</span>
+    </label>
+    <div class="err" id="welcome-err" role="alert"></div>
+    <div class="row"><button class="btn" id="start">Begin</button></div>
+  </section>
+
+  <!-- 2. Questions -->
+  <section id="s-quiz" class="hidden">
+    <div class="progress">
+      <div class="ptext"><span id="p-part">Part 1 of 4</span><span id="p-count">0 of 40 answered</span></div>
+      <div class="bar"><i id="p-bar"></i></div>
+    </div>
+    <div class="card">
+      <h2 id="part-title">Part 1</h2>
+      <p class="instr">How true is each statement of you? 1 = strongly disagree, 5 = strongly agree.</p>
+      <div id="items"></div>
+      <div class="err" id="quiz-err" role="alert"></div>
+      <div class="row split">
+        <button class="btn ghost" id="back">Back</button>
+        <button class="btn" id="next">Next</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Thank you -->
+  <section id="s-done" class="card hidden">
+    <div class="check"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#063737" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h2 id="done-title">Jazakallahu khayran</h2>
+    <p class="lede">Your answers are complete. To receive your report, please send your answer code to us using one of the buttons below.</p>
+    <div class="code" id="code"></div>
+    <div class="row">
+      <a class="btn gold" id="wa" target="_blank" rel="noopener">Send on WhatsApp</a>
+      <a class="btn ghost" id="mail">Send by email</a>
+      <button class="btn ghost" id="copy">Copy code</button>
+    </div>
+    <p class="note" style="margin-top:18px">Your answers are not stored on this website. Once you have sent your code, you can close this page. Your coach will go through your report with you, In shaa Allah.</p>
+  </section>
+
+  <!-- 4. Coach area -->
+  <section id="s-coach" class="card hidden">
+    <h2>Coach area</h2>
+    <p class="note">Paste the client's WhatsApp or email message below (or just the code starting with PSS1). The report is built on this device only and nothing is sent anywhere.</p>
+    <label class="field" for="paste">Client's message or code</label>
+    <textarea id="paste" rows="5" spellcheck="false"></textarea>
+    <label class="field" for="cname">Client name (as it should appear on the report)</label>
+    <input id="cname" type="text" maxlength="80">
+    <div class="err" id="coach-err" role="alert"></div>
+    <div class="row">
+      <button class="btn" id="make">Create report</button>
+      <button class="btn ghost hidden" id="useLocal">Use answers just completed here</button>
+    </div>
+  </section>
+
+  <!-- 5. Report -->
+  <section id="s-report" class="hidden">
+    <div class="toolbar">
+      <button class="btn" id="print">Print / Save as PDF</button>
+      <button class="btn ghost" id="copyScores">Copy scores line</button>
+      <button class="btn ghost" id="toCoach">Another report</button>
+    </div>
+    <article class="report" id="report"></article>
+    <p class="note no-print" style="margin-top:12px">Tip: in the print window, choose "Save as PDF", paper size A4, and turn on "Background graphics" so the colours show.</p>
+  </section>
+</main>
+<footer>Baraka Matchmaking &amp; Coaching · BMMM Services Ltd · Private and confidential · <a href="#coach" id="coachLink">Coach</a></footer>
+
+<script>
+"use strict";
+/* ---------------- settings ---------------- */
+const WHATSAPP = "23058032241";             // BMMM WhatsApp number, international format, digits only
+const EMAIL = "bmmmservicesltd@gmail.com";
+const PREPARED_BY = "Baraka Matchmaking & Coaching";
+
+/* ---------------- content (generated from generate_reports.py) ---------------- */
+const T = {"FORM": ["I like to take the lead when a decision needs to be made.", "I say what I think, even when others may not like it.", "I set ambitious goals for my life.", "I get impatient when things move slowly.", "I prefer to be in control of my own plans.", "I am comfortable challenging someone's opinion.", "I enjoy a challenge and like to win.", "I make up my mind quickly, even without all the details.", "I am willing to take risks to get what I want.", "I focus on the outcome more than on how everyone feels along the way.", "I find it easy to talk to people I have just met.", "I share my feelings openly with others.", "I enjoy being with lively groups of friends or family.", "I can lift the mood when people around me are down.", "I usually look on the bright side.", "I get my energy from being around people.", "I am good at getting others excited about an idea.", "I get bored when I spend a long time on quiet, detailed tasks.", "I like it when people notice and appreciate what I do.", "I make new friends easily.", "I feel most at ease when my days follow a familiar routine.", "I am patient with people, even when they repeat themselves.", "I listen carefully before I give my view.", "I feel unsettled when plans change at the last minute.", "I prefer to keep the peace rather than argue.", "I stay loyal to the people I care about for a long time.", "I like to take life at a steady, unhurried pace.", "I often put the needs of others before my own.", "I stay calm when people around me are upset.", "I need time to get used to a big change in my life.", "I like to think things through carefully before I act.", "I feel better when I know the right way to do something.", "I look into the facts before I make an important choice.", "I keep my things and my plans well organised.", "I set high standards for myself.", "I trust facts more than feelings or opinions.", "I feel uneasy when something is left unfinished or done badly.", "I plan ahead rather than leave things to the last minute.", "I think about what could go wrong before I commit.", "I question things that sound too good to be true."], "PLAIN": {"D": "Drive", "I": "Warmth", "S": "Steadiness", "C": "Precision"}, "COLOUR": {"D": "#C8553D", "I": "#E0A030", "S": "#4E9A6B", "C": "#3E6FB0"}, "ECHO": {"D": ["like to take the lead when a decision is needed", "say what you think, even when others may not like it", "set ambitious goals for your life", "get impatient when things move slowly", "prefer to be in control of your own plans", "are comfortable challenging someone's opinion", "enjoy a challenge and like to win", "make up your mind quickly", "are willing to take risks", "focus on the outcome more than the journey"], "I": ["find it easy to talk to people you have just met", "share your feelings openly", "enjoy lively groups of friends or family", "can lift the mood when others are down", "usually look on the bright side", "get your energy from being around people", "are good at getting others excited about an idea", "get bored with long, quiet, detailed tasks", "like it when people notice what you do", "make new friends easily"], "S": ["feel at ease with a familiar routine", "are patient with people", "listen carefully before giving your view", "feel unsettled by last-minute changes", "prefer to keep the peace", "stay loyal to the people you care about", "like a steady, unhurried pace", "often put others' needs before your own", "stay calm when others are upset", "need time to get used to big changes"], "C": ["think things through before you act", "feel better when you know the right way to do something", "look into the facts before an important choice", "keep your things and plans well organised", "set high standards for yourself", "trust facts more than opinions", "feel uneasy when something is left unfinished", "plan ahead", "think about what could go wrong before you commit", "question things that sound too good to be true"]}, "HEADLINE": {"D": "You like to set your own direction and make things happen.", "I": "You bring warmth and energy to the people around you.", "S": "You bring calm, patience and loyalty to your relationships.", "C": "You think things through and like to get them right.", "B": "You can adapt your style to what each moment needs."}, "COMBO": {"DI": "Together, this makes you bold and lively, someone who can move people towards a goal.", "DC": "Together, this makes you determined and thorough, with clear goals and high standards.", "DS": "Together, this makes you firm about where you are going but calm in how you get there.", "IS": "Together, this makes you warm, kind and easy to be around.", "IC": "Together, this makes you friendly and expressive, while still careful about what is true.", "SC": "Together, this makes you dependable, thoughtful and consistent."}, "SUMMARY": {"high": {"D": "You like to decide for yourself, set clear goals and move forward without waiting.", "I": "You are open and expressive, and you feel most alive when you are connecting with people.", "S": "You value peace, stability and close, lasting relationships.", "C": "You like to understand things fully, plan ahead and do what you do well."}, "low": {"D": "Taking charge or pushing for what you want does not come first for you.", "I": "You are more private, and you recharge best in quiet time or with a few close people.", "S": "You enjoy variety and change more than a fixed routine.", "C": "You trust your instincts and the big picture more than fine detail."}, "bal": "No single style stands out for you. You can draw on different sides of yourself as life requires."}, "SHINE": {"high": {"D": "You are decisive and you do not give up easily. When others hesitate, you find a way forward.", "I": "You make people feel welcome and you bring hope into a room. Others often feel lighter after time with you.", "S": "People feel safe with you. You listen without judging, and you stay steady when life gets hard.", "C": "You are careful and wise in your choices. People trust your judgement because you have thought it through."}, "bal": "You can be bold, warm, patient or careful as the moment needs. That flexibility is a real gift."}, "WATCH": {"high": {"D": "You may rush ahead before others are ready, and your directness can hurt more than you intend. Pausing to ask how others feel will help.", "I": "You may say yes to too much, or speak before you have listened fully. Promises can slip once the excitement fades.", "S": "You may hold back your own needs to keep the peace. Over time, unspoken feelings can build up inside.", "C": "You may overthink, delay choices until everything feels certain, and be hard on yourself when things are not perfect."}, "low": {"D": "You may find it hard to ask for what you need or to say no.", "I": "You may keep your feelings to yourself, so others may not know how much they matter to you.", "S": "You may get restless with routine and find it hard to stay with things that take time.", "C": "You may skip the details or decide too quickly when something important is at stake."}, "bal": "Because you adapt so easily, you may sometimes lose sight of what you want. Take time to name your own needs."}, "ENERGY": {"high": {"D": "Clear goals, freedom to choose and a real challenge to rise to.", "I": "Good company, new experiences and feeling appreciated.", "S": "Calm surroundings, people you trust and knowing what to expect.", "C": "Quiet time to think, a clear plan and doing something well."}, "bal": "Variety, balance between people and quiet time, and a clear sense of purpose."}, "DRAIN": {"high": {"D": "Feeling stuck, being controlled by others and waiting with no end in sight.", "I": "Long periods alone, cold or critical people and too much routine.", "S": "Sudden change, open conflict and being rushed.", "C": "Chaos, vague answers and being pushed to decide before you are ready."}, "bal": "Being stuck in one role for too long, with no room to be the other sides of yourself."}, "SITUATIONS": [["In conversations", {"high": {"D": "You get to the point quickly and say clearly what you think.", "I": "You keep things flowing, share stories and make others feel included.", "S": "You listen closely and give others space to finish what they are saying.", "C": "You choose your words carefully and ask questions to understand properly."}, "low": {"D": "You may hold back your view, even when it matters.", "I": "You may say little until you feel comfortable.", "S": "You may move the conversation on before others feel heard.", "C": "You may speak from feeling before checking the facts."}, "bal": "You adjust to the person, speaking up when needed and listening when that helps more."}], ["When facing a big decision", {"high": {"D": "You decide quickly and trust yourself to deal with what comes next.", "I": "You talk it through with others and follow what feels right.", "S": "You take your time and think about how the choice will affect the people you love.", "C": "You gather the facts, weigh the options and want to be sure before you commit."}, "low": {"D": "You may wait for others to decide for you.", "I": "You may decide alone without asking for support.", "S": "You may decide faster than others are comfortable with.", "C": "You may decide on instinct and skip some important checks."}, "bal": "You can decide quickly or slowly, depending on what is at stake."}], ["When life changes", {"high": {"D": "You adapt fast and look for the opportunity in the change.", "I": "You stay hopeful and look forward to what is new.", "S": "You need time and reassurance before you feel settled again.", "C": "You want to understand why it is happening and what it will mean."}, "low": {"D": "You may wait to see where things land before acting.", "I": "You may keep your worries to yourself.", "S": "You welcome change, but may forget that others need time.", "C": "You may jump in without thinking through the effects."}, "bal": "You usually cope with change without too much difficulty."}], ["When you disagree with someone close", {"high": {"D": "You say so directly. This is honest, but it can feel harsh to a sensitive person.", "I": "You try to keep things warm, and may soften what you mean so much that it gets lost.", "S": "You may stay quiet and go along with things to avoid hurting the relationship.", "C": "You explain your reasons calmly, and may hold your position until you are convinced."}, "low": {"D": "You may find it hard to stand your ground.", "I": "You may keep the disagreement inside rather than talk about it.", "S": "You may raise it before the other person is ready to listen.", "C": "You may argue from feeling before you have the full picture."}, "bal": "You can handle disagreement in whatever way suits the person and the moment."}], ["When stress builds", {"high": {"D": "You may become impatient, controlling or sharp with others.", "I": "You may become scattered or seek distraction rather than face the issue.", "S": "You may withdraw quietly and give in, while feeling hurt inside.", "C": "You may worry, become critical of yourself and others, and pull away."}, "low": {"D": "You may let others take over more than you would like.", "I": "You may pull away from people who could support you.", "S": "You may push for quick change to escape the discomfort.", "C": "You may let important things slip."}, "bal": "Your reactions may vary, so learn to notice your own early warning signs."}]], "OTHERS": {"D": ["Bold and direct", "Be brief and clear, get to the point and do not take their directness personally."], "I": ["Lively and expressive", "Show interest in their ideas, allow time for a chat and share some warmth."], "S": ["Calm and gentle", "Be patient, give notice of changes and ask how they really feel."], "C": ["Careful and thoughtful", "Give them facts and time to think, and avoid pushing for a quick answer."]}, "BALANCE": {"D": "Before your next important choice, ask someone close how they see it, and listen fully before you reply.", "I": "Each day, take ten quiet minutes alone to notice how you really feel, without your phone.", "S": "Once this week, share a need or a preference before anyone asks you for it.", "C": "Choose one thing this week to finish when it is good enough, and notice what happens."}, "BUILD": {"D": "Once a week, say clearly what you want in a situation where you would usually stay quiet.", "I": "Once a week, tell someone you care about what you appreciate in them.", "S": "Once a week, stay with one slow task or habit until it is done, without switching away.", "C": "Before one important choice each week, write down two facts you checked first."}, "QUESTIONS": ["When your main style is working at its best, what do you believe about yourself in that moment?", "Which quality from your least-used style would you most like to grow, and what would it give you?", "Think of someone you find hard to understand. What might they need from you that you do not naturally give?"]};
+const STYLES = ["D","I","S","C"];
+
+/* ---------------- state (memory only: nothing is saved in the browser) ---------------- */
+let answers = new Array(40).fill(0);
+let part = 0, finished = null;
+const $ = id => document.getElementById(id);
+const show = id => { ["s-welcome","s-quiz","s-done","s-coach","s-report"].forEach(s => $(s).classList.toggle("hidden", s !== id)); window.scrollTo(0,0); };
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* ---------------- questionnaire ---------------- */
+$("start").onclick = () => {
+  const nm = $("name").value.trim();
+  if (nm.length < 2) { $("welcome-err").textContent = "Please enter your name."; $("name").focus(); return; }
+  if (!$("consent").checked) { $("welcome-err").textContent = "Please tick the box to give your consent before you begin."; return; }
+  $("welcome-err").textContent = "";
+  part = 0; renderPart(); show("s-quiz");
+};
+
+function renderPart(){
+  $("part-title").textContent = "Part " + (part + 1);
+  $("p-part").textContent = "Part " + (part + 1) + " of 4";
+  $("back").style.visibility = part === 0 ? "hidden" : "visible";
+  $("next").textContent = part === 3 ? "Finish" : "Next";
+  $("quiz-err").textContent = "";
+  let h = "";
+  for (let k = 0; k < 10; k++) {
+    const q = part * 10 + k;
+    h += `<fieldset class="item" id="it${q}"><legend><span class="n">${q+1}</span><span>${esc(T.FORM[q])}</span></legend><div class="scale">`;
+    for (let v = 1; v <= 5; v++) {
+      h += `<label><input type="radio" name="q${q}" value="${v}" ${answers[q]===v?"checked":""} aria-label="${v}"><span>${v}</span></label>`;
+    }
+    h += `</div><div class="ends"><span>Strongly disagree</span><span>Strongly agree</span></div></fieldset>`;
+  }
+  $("items").innerHTML = h;
+  $("items").querySelectorAll("input").forEach(inp => inp.onchange = e => {
+    const q = +e.target.name.slice(1); answers[q] = +e.target.value;
+    $("it"+q).classList.remove("missing"); updateProgress();
+  });
+  updateProgress();
+}
+function updateProgress(){
+  const n = answers.filter(Boolean).length;
+  $("p-count").textContent = n + " of 40 answered";
+  $("p-bar").style.width = (n / 40 * 100) + "%";
+}
+$("back").onclick = () => { if (part > 0) { part--; renderPart(); window.scrollTo(0,0); } };
+$("next").onclick = () => {
+  let first = null;
+  for (let k = 0; k < 10; k++) { const q = part*10+k; if (!answers[q]) { $("it"+q).classList.add("missing"); first = first ?? q; } }
+  if (first !== null) {
+    $("quiz-err").textContent = "Please answer every statement on this page. The ones still to answer are marked in red.";
+    $("it"+first).scrollIntoView({behavior:"smooth", block:"center"}); return;
+  }
+  if (part < 3) { part++; renderPart(); window.scrollTo(0,0); } else finish();
+};
+
+/* answer code: PSS1-YYYYMMDD-ratings(4 x 10 digits)-checksum */
+function checksum(digits){ let s = 0; for (let i = 0; i < digits.length; i++) s += (i + 1) * +digits[i]; return String(s % 97).padStart(2,"0"); }
+function makeCode(r, d){
+  const ymd = d.getFullYear() + String(d.getMonth()+1).padStart(2,"0") + String(d.getDate()).padStart(2,"0");
+  const all = r.join("");
+  return `PSS1-${ymd}-${all.slice(0,10)}-${all.slice(10,20)}-${all.slice(20,30)}-${all.slice(30,40)}-${checksum(ymd+all)}`;
+}
+function parseCode(text){
+  const m = String(text).toUpperCase().match(/PSS1[\s-]*(\d{8})[\s-]*([1-5]{10})[\s-]*([1-5]{10})[\s-]*([1-5]{10})[\s-]*([1-5]{10})[\s-]*(\d{2})/);
+  if (!m) return null;
+  const all = m[2]+m[3]+m[4]+m[5];
+  if (checksum(m[1]+all) !== m[6]) return null;
+  const date = new Date(+m[1].slice(0,4), +m[1].slice(4,6)-1, +m[1].slice(6,8));
+  return { ratings: all.split("").map(Number), date };
+}
+function finish(){
+  const name = $("name").value.trim(), now = new Date();
+  const code = makeCode(answers, now);
+  finished = { name, ratings: answers.slice(), date: now };
+  const msg = `Assalamu alaykum. Here are my Personal Style Snapshot answers.\nName: ${name}\nCode: ${code}`;
+  $("done-title").textContent = "Jazakallahu khayran, " + name.split(/\s+/)[0];
+  $("code").textContent = code;
+  $("wa").href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
+  $("mail").href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Personal Style Snapshot - " + name) + "&body=" + encodeURIComponent(msg);
+  $("copy").onclick = () => copyText(msg, $("copy"));
+  $("useLocal").classList.remove("hidden");
+  show("s-done");
+}
+function copyText(txt, btn){
+  const done = () => { const o = btn.textContent; btn.textContent = "Copied"; setTimeout(() => btn.textContent = o, 1600); };
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(txt).then(done, () => fallback());
+  else fallback();
+  function fallback(){ const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select(); try{document.execCommand("copy"); done();}catch(e){} ta.remove(); }
+}
+window.addEventListener("beforeunload", e => {
+  if (!$("s-quiz").classList.contains("hidden") && answers.some(Boolean)) { e.preventDefault(); e.returnValue = ""; }
+});
+
+/* ---------------- coach area ---------------- */
+function openCoach(){ $("coach-err").textContent = ""; show("s-coach"); }
+$("coachLink").onclick = e => { e.preventDefault(); history.replaceState(null, "", "#coach"); openCoach(); };
+if (location.hash === "#coach") openCoach();
+window.addEventListener("hashchange", () => { if (location.hash === "#coach") openCoach(); });
+
+$("paste").addEventListener("input", () => {
+  const m = $("paste").value.match(/Name:\s*(.+)/i);
+  if (m && !$("cname").dataset.touched) $("cname").value = m[1].trim();
+});
+$("cname").addEventListener("input", () => $("cname").dataset.touched = "1");
+$("make").onclick = () => {
+  const p = parseCode($("paste").value);
+  if (!p) { $("coach-err").textContent = "This code is incomplete or has been mistyped. Please ask the client to resend it."; return; }
+  const nm = $("cname").value.trim() || "Client";
+  renderReport(nm, p.ratings, p.date);
+};
+$("useLocal").onclick = () => { if (finished) renderReport(finished.name, finished.ratings, finished.date); };
+$("toCoach").onclick = () => { $("paste").value = ""; $("cname").value = ""; delete $("cname").dataset.touched; openCoach(); };
+$("print").onclick = () => window.print();
+
+/* ---------------- scoring (same rules as generate_reports.py) ---------------- */
+const band = s => s < 35 ? "low" : (s <= 65 ? "mod" : "high");
+function score(r){
+  const sc = {}; STYLES.forEach((s,i) => sc[s] = Math.floor(((r.slice(i*10, i*10+10).reduce((a,b)=>a+b,0) - 10) * 5 + 1) / 2));
+  const ranked = STYLES.slice().sort((a,b) => (sc[b]-sc[a]) || (STYLES.indexOf(a)-STYLES.indexOf(b)));
+  const top = sc[ranked[0]], bottom = sc[ranked[3]];
+  const balanced = top < 50 || (top - bottom) < 20;
+  const primary = balanced ? null : ranked[0];
+  const secondary = (!balanced && sc[ranked[1]] >= 50) ? ranked[1] : null;
+  const leaders = balanced ? [] : ranked.slice(0,2).filter(s => sc[s] >= 50);
+  const low = (!balanced && sc[ranked[3]] < 35) ? ranked[3] : null;
+  return { sc, ranked, balanced, primary, secondary, leaders, low, profile: balanced ? "Balanced" : primary + (secondary || "") };
+}
+const joinHigh = (tbl, R) => R.leaders.length ? R.leaders.map(s => tbl.high[s]).join(" ") : tbl.bal;
+
+function chartSVG(sc){
+  const x0 = 120, x1 = 610, W = x1 - x0, X = v => x0 + W * v / 100, rowH = 34, top = 26;
+  let g = `<svg class="rp-chart" viewBox="0 0 640 ${top + rowH*4 + 26}" role="img" aria-label="Scores: ${STYLES.map(s=>T.PLAIN[s]+" "+sc[s]).join(", ")}">`;
+  g += `<rect x="${X(35)}" y="${top-6}" width="${X(65)-X(35)}" height="${rowH*4+6}" fill="#EAF3F4"/>`;
+  [35,65].forEach(v => g += `<line x1="${X(v)}" x2="${X(v)}" y1="${top-6}" y2="${top+rowH*4}" stroke="#B5CDD0" stroke-width="1"/>`);
+  [["Low",17.5],["Middle",50],["High",82.5]].forEach(([t,v]) => g += `<text x="${X(v)}" y="14" font-size="11" fill="#7a8483" text-anchor="middle">${t}</text>`);
+  STYLES.forEach((s,i) => {
+    const y = top + i*rowH + 6, h = 20;
+    g += `<text x="${x0-10}" y="${y+h/2+4}" font-size="12.5" fill="#222" text-anchor="end">${T.PLAIN[s]} (${s})</text>`;
+    g += `<rect x="${x0}" y="${y}" width="${Math.max(2, W*sc[s]/100)}" height="${h}" rx="2" fill="${T.COLOUR[s]}"/>`;
+    g += `<text x="${X(sc[s])+6}" y="${y+h/2+4}" font-size="12" fill="#333">${sc[s]}</text>`;
+  });
+  [0,35,65,100].forEach(v => g += `<text x="${X(v)}" y="${top+rowH*4+16}" font-size="10.5" fill="#888" text-anchor="middle">${v}</text>`);
+  return g + `</svg>`;
+}
+
+function renderReport(name, r, date){
+  const R = score(r), sc = R.sc;
+  const ds = date.toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric"});
+  let parts = R.leaders.length ? R.leaders.map(s => T.SUMMARY.high[s]) : [T.SUMMARY.bal];
+  if (R.leaders.length === 2) parts.push(T.COMBO[R.leaders.slice().sort((a,b)=>STYLES.indexOf(a)-STYLES.indexOf(b)).join("")]);
+  if (R.low) parts.push(T.SUMMARY.low[R.low]);
+  const flagged = [];
+  R.ranked.forEach(s => { for (let j=0;j<10;j++) if (r[STYLES.indexOf(s)*10+j] === 5) flagged.push(T.ECHO[s][j]); });
+  let watch = joinHigh(T.WATCH, R) + (R.low ? " " + T.WATCH.low[R.low] : "");
+  const effort = {high:"Comes naturally", mod:"Takes some effort", low:"Takes most effort"};
+  const w1 = R.balanced ? "Notice which moments call for you to be bolder, warmer, more patient or more careful." : T.BALANCE[R.primary];
+  const w23 = T.BUILD[R.low || R.ranked[3]];
+
+  let h = `<div class="rp-banner"><h1>Your Personal Style Snapshot</h1><div>${esc(name)} &nbsp;|&nbsp; ${ds} &nbsp;|&nbsp; ${esc(PREPARED_BY)}</div></div><div class="rp-body">`;
+  h += `<h3>At a glance</h3><p class="rp-head">${esc(T.HEADLINE[R.primary || "B"])}</p><p class="rp-grey">Your profile: ${R.profile}</p>`;
+  h += chartSVG(sc);
+  h += `<p class="rp-grey">D = Dominance, I = Influence, S = Steadiness, C = Conscientiousness. Scores run from 0 to 100; 35 to 65 is the middle range.</p>`;
+  h += `<h3>In plain words</h3><p>${esc(parts.join(" "))}</p>`;
+  if (flagged.length) h += `<p class="rp-echo">Some of your strongest answers (5 out of 5): you ${esc(flagged.slice(0,4).join("; you "))}.</p>`;
+  h += `<h3>Your natural strengths</h3><p>${esc(joinHigh(T.SHINE, R))}</p>`;
+  h += `<h3>Where you may get stuck</h3><p>${esc(watch)}</p>`;
+  h += `<h3>What fills you up, and what drains you</h3><p><b class="lead">Fills you up:</b> ${esc(joinHigh(T.ENERGY, R))}</p><p><b class="lead">Drains you:</b> ${esc(joinHigh(T.DRAIN, R))}</p>`;
+  h += `<h3>How you tend to respond</h3>`;
+  T.SITUATIONS.forEach(([title, tbl]) => { h += `<p><b class="lead">${esc(title)}.</b> ${esc(joinHigh(tbl, R) + (R.low ? " " + tbl.low[R.low] : ""))}</p>`; });
+  h += `<p class="rp-echo">The notes on stress are estimated from your scores, not measured separately. Use them as a starting point for reflection.</p>`;
+  h += `<h3>Connecting with people who are different from you</h3><table><thead><tr><th style="width:26%">When the other person is...</th><th>What helps</th><th style="width:20%">For you</th></tr></thead><tbody>`;
+  STYLES.forEach(s => h += `<tr><td>${esc(T.OTHERS[s][0])}</td><td>${esc(T.OTHERS[s][1])}</td><td>${effort[band(sc[s])]}</td></tr>`);
+  h += `</tbody></table>`;
+  h += `<h3>Your 30-day growth plan</h3><p><b class="lead">Week 1.</b> ${esc(w1)}</p><p><b class="lead">Weeks 2 and 3.</b> ${esc(w23)}</p><p><b class="lead">Week 4.</b> Ask someone who knows you well how your style comes across to them, and what one thing they would love to see more of from you.</p>`;
+  h += `<h3>Questions to reflect on</h3><ol>${T.QUESTIONS.map(q => `<li>${esc(q)}</li>`).join("")}</ol>`;
+  h += `<h3>About this report</h3><p class="rp-grey" style="font-size:12.5px">This report reflects how you described yourself on the day you answered. It shows preferences, not ability, character or worth, and your style can grow and shift over time. It is a tool for self-awareness and coaching, not a diagnosis or a clinical test, and it should not be used to label or judge you. It is most useful when you explore it with your coach.</p>`;
+  h += `<div class="rp-foot">Personal Style Snapshot &nbsp;|&nbsp; ${esc(PREPARED_BY)} &nbsp;|&nbsp; Private and confidential</div></div>`;
+  $("report").innerHTML = h;
+  const line = [name, sc.D, sc.I, sc.S, sc.C, R.profile, ds].join(", ");
+  $("copyScores").onclick = () => copyText(line, $("copyScores"));
+  document.title = "Personal Style Snapshot - " + name;
+  show("s-report");
+}
+</script>
+</body>
+</html>
